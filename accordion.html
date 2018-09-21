@@ -1,0 +1,192 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        body {
+            background: #fefefe;
+        }
+
+        ul {
+            list-style: none;
+        }
+        .mainmenu {
+            width: 200px;
+            margin: 10px auto;
+            background: #fff;
+            box-shadow: 0px 0px 3px rgba(250, 128, 114, 0.3);
+            ;
+            border-radius: 3px;
+        }
+        .mainmenu .main-item {
+            width: 100%;
+            text-align: center;
+        }
+        .main-item__subject {
+            margin: 0 auto;
+            text-align: center;
+            line-height: 36px;
+            border-bottom: 1px solid rgb(253, 240, 238);
+            color:#333;
+        }
+         
+        .submenu {
+            width: 100%;
+            background: #eee;
+            background: rgb(253, 240, 238);
+            border-top: 1px solid rgb(253, 240, 238);
+        }
+        .submenu .sub-item {
+            height: 32px;
+            line-height: 32px;
+            text-align: center;
+            color: #888;
+            border-bottom: 1px solid #fff;
+        }
+        .submenu .sub-item:last-child{
+            border:0;
+        }
+        .submenu .sub-item:hover,
+        .submenu .submenu__chosen {
+            color: #fff;
+            background: rgb(253, 187, 178);
+            border-bottom: 0px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <ul class="mainmenu">
+            <li class="main-item">
+                <p class="main-item__subject">虞美人
+                </p>
+                <ul class="submenu">
+                    <li class="sub-item">
+                        春花秋月何时了，
+                    </li>
+                    <li class="sub-item">
+                        往事知多少？
+                    </li>
+                    <li class="sub-item">
+                        小楼昨夜 又东风，
+                    </li>
+                    <li class="sub-item">
+                        故国不堪回首月明中！
+                    </li>
+                    <li class="sub-item">
+                        雕栏玉砌应犹在，
+                    </li>
+                    <li class="sub-item">
+                        只是朱颜改。
+                    </li>
+                    <li class="sub-item">
+                        问君能有几多愁？
+                    </li>
+                    <li class="sub-item">
+                        恰似一江春水向东流。
+                    </li>
+                </ul>
+            </li>
+            <li class="main-item">
+                <p class="main-item__subject">应个</p>
+                <ul class="submenu">
+                    <li class="sub-item">
+                        写一字进来
+                    </li>
+                    <li class="sub-item">
+                        空荡荡的不像样
+                    </li>
+                    <li class="sub-item">
+                        随便来电花了
+                    </li>
+                </ul>
+            </li>
+            <li class="main-item">
+                <p class="main-item__subject">应个</p>
+                <ul class="submenu">
+                    <li class="sub-item">
+                        写一字进来
+                    </li>
+                    <li class="sub-item">
+                        空荡荡的不像样
+                    </li>
+                    <li class="sub-item">
+                        随便来电花了
+                    </li>
+                </ul>
+            </li>
+            <li class="main-item">
+                <p class="main-item__subject">冬青花</p>
+                <ul class="submenu">
+                    <li class="sub-item">
+                        移来此种非人间
+                    </li>
+                    <li class="sub-item">
+                        曾识万年觞底月
+                    </li>
+                    <li class="sub-item">
+                        夜半一声山竹裂
+                    </li>
+                    <li class="sub-item">
+                        咏花抒情
+                    </li>
+
+                    <li class="sub-item">
+                        缅怀宋旧帝
+                    </li>
+
+                </ul>
+            </li>
+            <li class="main-item">
+                <p class="main-item__subject">浣溪沙</p>
+                <ul class="submenu">
+                    <li class="sub-item">
+                        一曲新词酒一杯，
+                    </li>
+                    <li class="sub-item">
+                        去年天气旧亭台。
+                    </li>
+                    <li class="sub-item">
+                        夕阳西下几时回？
+                    </li>
+                    <li class="sub-item">
+                        无可奈何花落去，
+                    </li>
+                    <li class="sub-item">
+                        似曾相识燕归来。
+                    </li>
+                    <li class="sub-item">
+                        小园香径独徘徊。
+                    </li>
+
+                </ul>
+            </li>
+        </ul>
+    </div>
+</body>
+<script src="./js/jquery-1.12.4.min.js"></script>
+<script>
+    $('.submenu').hide();
+    $('.mainmenu .main-item__subject').on('click', function () {
+        // siblings() 获得匹配集合中，每个元素的同胞,可传入参数进行筛选。
+        $(this).siblings('.submenu').slideToggle().addClass('menu__chosen');
+        $('.main-item__subject').siblings().not('.menu__chosen').slideUp();
+        $(this).siblings('.submenu').removeClass('menu__chosen');
+    })
+    $('.sub-item').on('click', function () {
+        $('.sub-item').siblings().removeClass('submenu__chosen');
+        $(this).addClass('submenu__chosen');
+    })
+</script>
+
+</html>
