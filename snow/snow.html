@@ -1,0 +1,90 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>缓慢的下雪效果</title>
+    <style>
+        *{
+            padding:0;
+        }
+        body{
+            background-color: #161a32;
+        }
+        img{
+            display: block;
+        }
+
+    </style>
+</head>
+<body >
+<div class="snowflowerlayer" id="snowflowerlayer">
+</div>
+    <script type="text/javascript">
+        var HEIGHT =window.innerHeight; //浏览器可视工作区高度
+        var WIDTH=window.innerWidth;    //浏览器可视工作区宽度
+        var MAX=120;    // snow个数
+        var T=20;       //  刷新的时间间隔
+        var i;
+        var vx=new Array(); // 相对时间间隔，雪花水平位移的速度
+        var vy=new Array(); // 相对时间间隔，雪花位移的竖直速度
+        var size=new Array();//  雪花宽度=高度
+        var va=new Array(); //    旋转的角速度
+        var a=new Array();  //     旋转角度
+        var transparence= new Array();// 透明度
+        var x=new Array();  //  水平位移
+        var y=new Array();  //  竖直位移
+        var snowflower=new Array(); // 存放雪花
+        for(i=0;i<MAX;i++){
+            vx[i]=Math.random()*8+8;
+            vy[i]=Math.random()*45+48;
+            x[i]=Math.random()*WIDTH;
+            if(i%3==0) {
+                y[i] = Math.random()*150-150;
+            }
+            else if(i%3==1){
+                y[i] = Math.random()*150-300;
+            }
+            else {
+                y[i] = Math.random()*150-450;
+            }
+            va[i]=0.5;
+            a[i]=0;
+            size[i]=Math.random()*10+12;
+            transparence[i]=Math.random()*0.4+0.2;
+            snowflower[i]=document.createElement("img");
+            snowflower[i].style.position="absolute";
+            snowflower[i].src="snow.png";
+            snowflower[i].style.opacity=transparence[i];
+            snowflower[i].style.width=size[i]+"px";
+            snowflower[i].style.height=size[i]+"px";
+            snowflower[i].style.left=x[i]+"px";
+            snowflower[i].style.top=y[i]+"px";
+            snowflowerlayer.appendChild(snowflower[i]);
+        }
+        function fall(){
+            for(i=0;i<MAX;i++){
+                if((y[i]+40)>HEIGHT||(x[i]+40)>WIDTH||(x[i]-30)<0)
+                {
+                    x[i]=Math.random()*WIDTH;
+                    if(i%3==0) {
+                        y[i] = Math.random()*100-70;
+                    }
+                    else if(i%3==1){
+                        y[i] = Math.random()*100-170;
+                    }
+                    else {
+                        y[i] = Math.random()*100-270;
+                    }
+                }
+                x[i]=x[i]+vx[i]*T/1000;
+                y[i]=y[i]+vy[i]*T/1000;
+                a[i]=((a[i]+va[i]+360)%360);
+                snowflower[i].style.left=x[i]+"px";
+                snowflower[i].style.top=y[i]+"px";
+                snowflower[i].style.transform = 'rotate('+a[i]+'deg)';
+            }
+        }
+        setInterval ("fall()",T);
+    </script>
+</body>
+</html>
