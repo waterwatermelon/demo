@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>鼠标划入圆点，释放水波</title>
+    <style>
+        * {
+            margin: 0;
+            padding: 0;
+        }
+
+        html,
+        body {
+            height: 100%;
+        }
+
+        body {
+            background: rgb(0, 120, 80);
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            overflow: hidden;
+        }
+
+        .wrapper {
+            width: 200px;
+            height: 200px;
+            position: relative;
+            transition: opacity ease-out .5s;
+        }
+
+        .btn {
+            position: absolute;
+            width: 200px;
+            height: 200px;
+            line-height: 200px;
+            background: rgb(0, 177, 118);
+            border-radius: 50%;
+            box-shadow: 0px 0px 10px darkgreen;
+            color: #fff;
+            font-size: 18px;
+            text-align: center;
+        }
+
+        .circle {
+            position: absolute;
+            top: calc(50% - 120px);
+            left: calc(50% - 120px);
+            width: 240px;
+            height: 240px;
+            border-radius: 50%;
+            border: 1px solid #fff;
+            opacity: 0;
+            animation-duration: 3s;
+            animation-timing-function: linear;
+            animation-iteration-count: infinite;
+        }
+
+        .wrapper:hover div {
+            animation-name: change;
+        }
+
+        .circle:nth-child(2) {
+            animation-delay: 750ms;
+        }
+
+        .circle:nth-child(3) {
+            animation-delay: 1500ms;
+        }
+
+        .circle:nth-child(4) {
+            animation-delay: 2250ms;
+        }
+
+        @keyframes change {
+            0% {
+                opacity: 0.1;
+                transform: scale(1);
+            }
+
+            50% {
+                opacity: 0.4;
+            }
+
+            100% {
+                opacity: 0.1;
+                transform: scale(3);
+            }
+        }
+       
+    </style>
+</head>
+
+<body>
+    <div class="wrapper">
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="circle"></div>
+        <div class="btn">
+            把鼠标放到上面来
+        </div>
+    </div>
+</body>
+
+</html>

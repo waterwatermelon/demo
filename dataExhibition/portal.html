@@ -1,0 +1,284 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>首页大屏数据展示</title>
+    <script src="js/echarts.min.js"></script>
+    <script src="js/jquery-1.7.2.min.js"></script>
+    <script src="js/china.js"></script>
+    <!--显示多个图表函数-->
+    <script src="js/mmap.js"></script>
+    <!--显示时钟函数-->
+    <script src="js/saleMap.js"></script>
+    <script src="js/canvas.js"></script>
+    <script src="js/digitroll.js"></script>
+    <link rel="stylesheet" href="./css/reset.css">
+    <link rel="stylesheet" href="./css/index.css">
+</head>
+<body>
+    <div class="main-box" id="fullscreen">
+        <canvas id="myCanvas"></canvas>
+        <div class="left">
+            <div class="rank-box">
+                <table class="rank-table">
+                    <caption class="rank-title">1出货 TOP 5</caption>
+                    <tr class="rank-row">
+                        <td class="sequence top-one">1</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Miss Julianne McLaughlin
+                            </span>
+                            <span class="full-name"> Miss Julianne McLaughlin</span>
+                        </td>
+                        <td class="amount">52438</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence top-two">2</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Karianne Turcotte
+                            </span>
+                            <span class="full-name"> Karianne Turcotte</span>
+                        </td>
+                        <td class="amount">40395</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence top-three">3</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Colt Hessel
+                            </span>
+                            <span class="full-name"> Colt Hessel</span>
+                        </td>
+                        <td class="amount">37276</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence">4</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Jovan Reinger III
+                            </span>
+                            <span class="full-name"> Jovan Reinger III</span>
+                        </td>
+                        <td class="amount">26838</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence">5</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Raymundo Kerluke
+                            </span>
+                            <span class="full-name"> Raymundo Kerluke</span>
+                        </td>
+                        <td class="amount">12533</td>
+                    </tr>
+
+                </table>
+            </div>
+            <div class="rank-box">
+                <table class="rank-table">
+                    <caption class="rank-title">2出货 TOP 5</caption>
+                    <tr class="rank-row">
+                        <td class="sequence top-one">1</td>
+                        <td class="name-box">
+                            <span class="name">Miss Julianne McLaughlin
+                            </span>
+                            <span class="full-name">都热秘法索拉西</span>
+                        </td>
+                        <td class="amount">52438</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence top-two">2</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Karianne Turcotte
+                            </span>
+                            <span class="full-name"> Karianne Turcotte</span>
+                        </td>
+                        <td class="amount">40395</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence top-three">3</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Colt Hessel
+                            </span>
+                            <span class="full-name"> Colt Hessel</span>
+                        </td>
+                        <td class="amount">37276</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence">4</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Jovan Reinger III
+                            </span>
+                            <span class="full-name"> Jovan Reinger III</span>
+                        </td>
+                        <td class="amount">26838</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence">5</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Raymundo Kerluke
+                            </span>
+                            <span class="full-name"> Raymundo Kerluke</span>
+                        </td>
+                        <td class="amount">12533</td>
+                    </tr>
+
+
+                </table>
+            </div>
+            <div class="rank-box">
+                <table class="rank-table">
+                    <caption class="rank-title">3出货 TOP 5</caption>
+                    <tr class="rank-row">
+                        <td class="sequence top-one">1</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Miss Julianne McLaughlin
+                            </span>
+                            <span class="full-name"> Miss Julianne McLaughlin</span>
+                        </td>
+                        <td class="amount">52438</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence top-two">2</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Karianne Turcotte
+                            </span>
+                            <span class="full-name"> Karianne Turcotte</span>
+                        </td>
+                        <td class="amount">40395</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence top-three">3</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Colt Hessel
+                            </span>
+                            <span class="full-name"> Colt Hessel</span>
+                        </td>
+                        <td class="amount">37276</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence">4</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Jovan Reinger III
+                            </span>
+                            <span class="full-name"> Jovan Reinger III</span>
+                        </td>
+                        <td class="amount">26838</td>
+                    </tr>
+                    <tr class="rank-row">
+                        <td class="sequence">5</td>
+                        <td class="name-box">
+                            <span class="name">
+                                Raymundo Kerluke
+                            </span>
+                            <span class="full-name"> Raymundo Kerluke</span>
+                        </td>
+                        <td class="amount">12533</td>
+                    </tr>
+                </table>
+
+            </div>
+        </div>
+        <div class="right">
+            <div class="charts-box">
+                <h4 class="chart-title">
+                    本周销售情况
+                </h4>
+                <div class="chart" id="main1">
+
+                </div>
+            </div>
+            <div class="charts-box">
+                <h4 class="chart-title">
+                    今日销售情况
+                </h4>
+                <div class="chart" id="main2">
+
+                </div>
+            </div>
+            <div class="charts-box">
+                <h4 class="chart-title">
+                    本周支付方式分布
+                </h4>
+                <div class="chart" id="main3">
+
+                </div>
+            </div>
+            <div class="switch-box" id="switch-box">
+                <span class="imply-txt" id="imply-txt">进入全屏</span>
+                <a href="#" id="screen-switch" class="fscreen-open"> </a>
+            </div>
+        </div>
+        <div class="middle">
+            <div class="m-top">
+                <div class="calendar">
+                    <div class="container">
+                        <div class="time" id="time"></div>
+                        <div class="date" id="date"></div>
+                    </div>
+                </div>
+                <div class="sales-box">
+                    <p class="sales-hd">
+                        销量统计
+                    </p>
+                    <div class="sales-bd">
+                        <h3 class="summary-title">本月销售量</h3>
+                        <p><span class="unit">件</span><span class="num-scroll" id="num-scroll1"> </span></p>
+                        <h3 class="summary-title">本月销售额</h3>
+                        <p><span class="unit">元</span><span class="num-scroll" id="num-scroll2"> </span></p>
+                    </div>
+                    <div class="sales-bd">
+                        <h3 class="summary-title">本月销售量</h3>
+                        <p><span class="unit">件</span><span class="num-scroll"> </span></p>
+                        <h3 class="summary-title">本月销售额</h3>
+                        <p><span class="unit">￥</span><span class="num-scroll"> </span></p>
+                    </div>
+                </div>
+            </div>
+            <div class="m-bottom" id="main"></div>
+        </div>
+
+    </div>
+</body>
+<script>
+    var number1 = 0,
+        number2 = 950.2;
+    //第一个组件
+    var r1 = new DigitRoll({
+        container: '#num-scroll1',
+        number: number1
+    });
+
+    r1.roll(number1);
+   
+    timer1 = setInterval(function () {
+        number1 += parseInt(Math.random() * 50) ;
+        r1.roll(number1); 
+        console.log(`整数 = ${r1.number.join('')}`); 
+    }, 3000);
+    //第二个组件
+    var r2 = new DigitRoll({
+        container: '#num-scroll2',
+        number: number2
+    });
+    r2.roll(number2);
+    setInterval(function () {
+        number2 += parseInt(Math.random() * 1000) / 1000;
+        r2.roll(number2);
+        console.log(`浮点数 = ${number2}`);
+        // console.log('浮点数 = '+ number2);
+    }, 3000);
+</script>
+
+</html>

@@ -1,0 +1,387 @@
+﻿ @charset "UTF-8";
+/* 总体布局 */
+.main-box
+{
+    height: 100%;
+    padding-top: 6px;
+    background:rgb(4, 8, 15);
+    filter: brightness(1);
+}
+#myCanvas{
+    position: absolute;
+    top: 0;
+    left: 0;
+    z-index: -5;
+}
+.left {
+    width: 25%;
+    height: 100%;
+    float: left;
+}
+.middle {
+    height: 100%;
+    width: 50%;
+    padding:1.8rem 1rem 0;
+    margin-left: 25%;
+    margin-right: 25%; 
+    border-left:1px solid rgb(43, 110, 146);
+    border-right:1px solid rgb(43, 110, 146);
+}
+.right {
+    height: 100%;
+    width: 25%;
+    float: right;
+    position: relative;
+}
+/* 左边  排行榜盒子*/
+.rank-box{
+    position: relative;
+    width: 90%;
+    height: 32%;
+    margin: 0px auto 6px;
+    padding: 20px 12%;    
+}
+.rank-box:nth-child(3){
+    border: 0px;
+}
+/* 画排行榜盒子边框 */
+.rank-box::before{
+    content: '';
+    position: absolute;
+    top: 1.8rem;
+    left: 0%;
+    width: 100%;
+    height: 90%; 
+    border: 1px solid rgb(43, 110, 146);
+    box-shadow: inset 0px 0px 32px rgba(30, 99, 124, 0.8)
+}
+.rank-box .rank-title {
+    position: relative;
+    width: 70%;
+    top: 0rem;
+    left: 13%;
+    margin-bottom: 2rem;
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-align: center;
+    color: rgb(27, 216, 216); 
+    background: rgba(43, 110, 146, 0.5);
+    border-left: 1px solid rgb(43, 110, 146);
+    border-right: 1px solid rgb(43, 110, 146);
+}
+/* 画竖线*/
+.rank-box .rank-title::before{
+    content: '|';
+    position: absolute;
+    left: -0.5rem;
+    font-size: 1rem;
+    color: rgb(43, 110, 146);
+}
+.rank-box .rank-title::after{
+    content: '|';
+    position: absolute;
+    right: -0.5rem;
+    font-size: 1rem;
+    color: rgb(43, 110, 146);
+}
+.rank-table{    
+    position: relative;
+    z-index: 1;
+    width: 100%;
+    padding: 0px 10px;
+    /* 该属性使td宽度可设置 */
+    table-layout: fixed;
+    font-size: 14px;
+    font-size: 0.875rem;
+}
+.rank-table .rank-row{
+    width: 100%;
+    height: 20px;
+} 
+.rank-table .rank-row:nth-child(odd){
+    background:rgba(11, 104, 162, 0.4);
+} 
+.rank-table .rank-row:hover{
+    background: rgba(11, 104, 162, 0.8);
+}
+/* td 不能设置margin,能设置padding */
+.rank-row td{
+    padding: 0.2rem 0px;
+}
+.rank-table .sequence {
+    width: 0.75rem;
+    text-align: center; 
+    color: rgb(82, 182, 203);   
+} 
+.rank-table .name-box {
+    padding-left: 4px;
+    cursor: pointer;
+    width: 70%;
+    position: relative;
+    color: rgb(82, 182, 203);
+}
+.rank-table .name {
+    display: block;
+    width: 100%;
+    overflow: hidden;
+    white-space: nowrap;
+    text-overflow: ellipsis;
+    color: rgb(82, 182, 203);
+}
+.rank-table .full-name {
+    position: absolute;
+    z-index: 5;
+    top: -80%;
+    left: 0px;
+    padding: 2px 4px;
+    color: rgb(255, 255, 255);
+    background: #1b293c;
+    white-space: nowrap;
+    box-shadow: 0px 0px 6px #124871;
+    border-radius: 3px;
+    display: none;
+}
+/* 小三角形  */
+.rank-table .full-name::before {
+    content: '';
+    position: absolute;
+    top: 100%;
+    left: calc(50% - 4px);
+    border-top: 6px solid rgba(255, 255, 255, 0.8);
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+}
+
+.rank-table .amount {
+    width:40%;
+    text-align: right;
+    color: #fdf97c;
+    padding-right: 5%;
+}
+/* 中部展示区 */
+.middle .m-top
+{
+    width: 100%;
+    height: 20%;
+    margin-bottom: 6px;
+    position: relative;
+    border: 1px solid rgb(43, 110, 146);
+    box-shadow: inset 0px 0px 32px rgba(30, 99, 124, 0.8);
+}
+/* 日期 */
+.calendar
+{
+    float: left;
+    height: 100%;
+    width: 40%;
+    position: relative;
+    text-align: center;
+    border: 0px;/*兼容easyui的calendar */
+    color: #25ffff;
+    border-right: 1px solid rgb(43, 110, 146);
+} 
+.calendar .container
+{
+    position: absolute;
+    padding:10%; 
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    margin: auto auto;
+    height: 9rem;
+}
+.calendar .time
+{
+    position: relative;
+    font-size: 36px;
+    font-size: 2.25rem;
+    margin-bottom: 10px;  
+}
+.calendar .date
+{
+    font-size: 12px;
+    font-size: 0.8rem; 
+    color: #21dfdf;
+}
+/* 销量汇总 */
+.sales-box
+{
+    position: relative;
+    width: 56%;
+    float: right;
+    height: 100%;
+} 
+.sales-hd
+{
+    position: absolute; 
+    top: 6%;
+    left: 36%;
+    width:28%; 
+    text-align: center;
+    font-size: 18px;
+    font-size: 1.125rem;
+    line-height: 24px;
+    line-height: 1.5rem;
+    color: rgb(27, 216, 216);
+    background: rgba(60, 200, 250, 0.3);
+} 
+.sales-bd  
+{
+    position: absolute;
+    bottom: 0%;
+    float: left;
+    width: 50%;
+    height: 70%;
+    padding-right:2.5rem;
+    border-right: 1px solid rgb(43, 110, 146);
+}
+.sales-bd:nth-of-type(2)
+{
+    border-right: 0px;
+    right: 0%;
+}
+.sales-bd .summary-title
+{ 
+    height:  1.25rem;
+    text-align: right;
+    font-size: 14px;
+    font-size: 0.875rem;
+    font-weight: normal; 
+    color: #5ef1f8; 
+}
+.sales-bd p
+{ 
+    position: relative;
+    height:  1.25rem;
+    line-height: 1.25rem;
+    font-size: 20px;
+    font-size: 1.25rem; 
+    color:rgb(253,249,149);  
+}
+.sales-bd .num-scroll{
+    float: right;
+}
+.sales-bd .unit{
+    float: right;
+    color: #fff;
+    font-size: 1.1rem; 
+}
+.middle .m-bottom
+{   
+    width: 100%;
+    height: 75%;
+}
+/* 右边图表盒子 */
+.right .charts-box
+{
+    position: relative;
+    width: 90%;
+    height: 31%;
+    margin: 0 auto 12px;
+    margin-top: 0px;  
+    padding-top:20px;
+    padding-top:1.25rem;
+}
+.right .charts-box::before{
+    content: '';
+    position: absolute;
+    top: 1.8rem;
+    width: 100%;
+    height: 90%;  
+    border: 1px solid rgb(43, 110, 146);
+    box-shadow: inset 0px 0px 32px rgba(30, 99, 124, 0.8)
+}
+.charts-box .chart-title{
+    position: relative;
+    width: 70%;
+    top: 0rem;
+    left: 15%;
+    margin-bottom: 12px;
+    font-size: 18px;
+    font-size: 1.125rem;
+    font-weight: normal;
+    text-align: center;
+    color: rgb(27, 216, 216);
+    background: rgba(43, 110, 146, 0.5);
+    border-left: 1px solid rgb(32, 83, 111);
+    border-right: 1px solid rgb(32, 83, 111);
+}
+/* 画竖线*/
+.charts-box .chart-title::before{
+    content: '|';
+    position: absolute;
+    left: -0.5rem;
+    font-size: 1rem;
+    color: rgb(43, 110, 146);
+}
+.charts-box .chart-title::after{
+    content: '|';
+    position: absolute;
+    right: -0.5rem;
+    font-size: 1rem;
+    color: rgb(43, 110, 146);
+}
+.charts-box .chart {
+    width: 100%;
+    height: 90%;
+}
+.switch-box{
+    position: absolute;
+    cursor: pointer;
+    width: 36px;
+    height: 36px;
+    top: 0px;
+    right: 0px;
+    border: 1px solid rgb(47, 120, 160);
+    box-shadow: 0px 0px 32px rgba(30, 99, 124, 0.8);
+    border-radius: 2px;
+}
+#screen-switch{
+    display: block;
+    width: 100%;
+    height: 100%;
+    z-index: 5;
+    background-repeat:no-repeat;
+    background-position:center center;
+    background-size: 100% 100%;
+}
+.switch-box .fscreen-open{
+    background-image: url(../imgs/fullscreen-open.svg);
+}
+.switch-box .fscreen-open:hover{
+    opacity: 1;
+}
+.switch-box .fscreen-exit{
+    background-image: url(../imgs/fullscreen-exit.svg);
+}
+.switch-box .fscreen-exit:hover{
+    opacity: 1;
+}
+.switch-box .imply-txt{
+    opacity: 0;
+    position: absolute;
+    top: 110%;
+    right: 0px;
+    font-size: 12px;
+    width: 54px;
+    height: 20px;
+    color: rgb(0, 0, 0);
+    line-height: 1.5em;
+    border-radius: 2px;
+    padding: 0px 2px;
+    transition: .2s;
+}
+.switch-box .imply-txt::before
+{
+    content: "";
+    position: absolute;
+    width: 0px;
+    height: 0px;
+    top: -4px;
+    left: calc(50% - 2px);
+    border-bottom:4px dotted rgba(0, 0, 0, 0.5); 
+    border-right:4px solid transparent; 
+    border-left:4px solid transparent; 
+}
