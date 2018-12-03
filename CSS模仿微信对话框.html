@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>CSS模仿微信对话框</title>
+    <style>
+        .dialog {
+            position: relative;
+            width: 240px;
+            /* height: 50px; */
+            line-height: 1.5em;
+            /* min-height: 100px;
+            max-height: 200px; */
+            padding: .5em;
+            margin: 20px;
+            border-radius: .5em;
+            background-color: #25a23b;
+            word-break: break-all;/* 换行处 normal:浏览器默认，break-all:单词内可换行keep-all:连字符，空格。  */
+            color: #fff;
+        }
+        .dialog::before{
+            content: '';
+            position: absolute;
+            top: 0.75em;
+            border-top: .5em solid transparent;
+            border-bottom: .5em solid transparent;
+        }
+        .dialog:nth-child(2n+1):before {
+            left: -.5em;
+            border-right: .5em solid #25a23b;
+        }
+        .dialog:nth-child(2n):before {
+            right: -.5em;
+            border-left: .5em solid #25a23b;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="dialog">
+        Chief Functionality
+        Facilitator SAS JeweleryChief Functionality Facilitator SAS Jewelery
+    </div>
+    <div class="dialog"> 
+       JeweleryChief Functionality Facilitator SAS Jewelery
+    </div>
+</body>
+
+</html>

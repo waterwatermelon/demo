@@ -10,7 +10,6 @@ html,body{
 }
 body{
     font: 100% Arial,"Microsoft YaHei";
-    overflow: hidden;
     color: #666;
 }
 address, cite, dfn, em, var { font-style:normal; }

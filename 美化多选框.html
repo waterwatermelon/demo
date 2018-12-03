@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        input{
+            display: none;
+        }
+        span{
+            position: relative;
+            display: inline-block;
+            height: 16px;
+            width: 16px;
+            margin-right: 3px;
+            vertical-align: bottom;
+            border: 1px solid #abcdef;
+            border-radius: 15%;
+            transition: all 1s;
+        }
+        .checkbox:checked+.my_leb::before{
+            content: '';
+            position: absolute;
+            top: 3px;
+            left: 3px;
+            width: 10px;
+            height: 10px;
+            border-radius: 15%;
+            background-color: #abcdef;
+        }
+    </style>
+</head>
+<body>
+    <label for="cb1">
+        <input type="checkbox" class="checkbox"name="cb" id="cb1">
+        <span class="my_leb"></span>熊猫Panda
+    </label> 
+    <label for="cb2">
+        <input type="checkbox" class="checkbox"name="cb" id="cb2">
+        <span class="my_leb"></span> 大象
+    </label>
+    <label for="cb3">
+        <input type="checkbox" class="checkbox"name="cb" id="cb3">
+        <span class="my_leb"></span> 老虎
+    </label>
+</body>
+</html>

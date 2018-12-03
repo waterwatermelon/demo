@@ -1,10 +1,14 @@
 @charset "utf-8";
 body{
-    background: #f1f1f1;
+    background: #eee;
 }
 main{
     width: 1000px;
     margin: 10px auto;
+}
+nav{
+    position: sticky;
+    top: 10px;
 }
 .nav{
     float: left;
@@ -25,8 +29,8 @@ main{
 }
 
 .content{ 
-    height: 800px;
     background: #fff;
+    padding: 1em 0;
     overflow: hidden;
 }
 .card-box{
@@ -34,7 +38,7 @@ main{
     float: left;
     width: 280px;
     height: 280px;
-    margin-top: 18px;
+    margin: .5em 0;
     margin-left: calc(1/4 * 100% - 210px);
     background: #fff;
     border-radius: 3px;

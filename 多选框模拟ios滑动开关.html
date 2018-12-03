@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+    <style>
+        .switch{
+            appearance: none;
+            -moz-appearance: none;
+            -webkit-appearance: none;
+            outline: none;
+            position: relative;
+            width: 52px;
+            height: 32px;
+            border-radius: 16px; 
+            box-sizing: border-box;
+            background-color: #dfdfdf;
+            border: 1px solid #dfdfdf;
+            transition: .3s;
+        }
+        /* .switch::before{
+            position: absolute;
+            top: 0;
+            right: 0;
+            background-color: #fff;
+            transition: transform .3s;
+        } */
+        .switch::after{
+            content: '';
+            position: absolute;
+            top: 1px;
+            left: 1px;
+            width: 30px;
+            height: 30px;
+            border-radius: 50%;
+            background-color: #fff;
+            box-shadow: 0 1px 3px rgba(0,0, 0, 0.4);
+            transition: transform .3s ease-in;
+        }
+        .switch:checked
+        {
+            border-color: #abcdef;
+            background-color: #abcdef;
+        }
+
+        .switch:checked::after{
+           transform: translateX(20px);
+        }
+        p{
+            transition: all .3s;
+        }
+        .switch:checked+p{
+            color: #abcdef;
+        }
+    </style>
+</head>
+
+<body>
+    
+    <input type="checkbox" class="switch">
+    <p>
+        step1  input 元素去默认样式，改造成椭圆背景。 <br>
+        step2  :before 或者 :after 画圆球。<br>
+        step3  transition 绘制过渡动画。
+    </p>
+</body>
+
+</html>
