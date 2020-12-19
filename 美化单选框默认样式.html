@@ -1,38 +1,52 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>改写单选框默认样式</title>
     <style>
-        input{
+        input {
             display: none;
         }
-        label{
-            position: relative;
-        }
-        label::before{
+
+        span {
             display: inline-block;
+            position: relative;
+            width: 16px;
+            height: auto;
+            vertical-align: middle;
+        }
+
+        span::before {
             content: "";
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             width: 12px;
             height: 12px;
+            margin: auto;
             border: 1px solid #eee;
             border-radius: 50%;
-            vertical-align: bottom;
-            transition: border .3s ease-in;
         }
-        input:checked+label::before{
+
+        input:checked + span::before {
             border-color: skyblue;
         }
-        
-        input:checked+label::after{
+
+        input:checked + span::after {
             content: '';
             position: absolute;
-            bottom: 3px;
-            left: 3px;
+            top: 0;
+            bottom: 0;
+            left: 0;
+            right: 0;
             width: 8px;
             height: 8px;
+            margin: auto;
             border-radius: 50%;
             background-color: skyblue;
         }
@@ -40,13 +54,17 @@
 </head>
 
 <body>
-    <input type="radio" name="sex" id="female">
     <label for="female">
-        女
+        <input type="radio" name="sex" id="female">
+        <span>
+        </span>
+        female
     </label>
-    <input type="radio" name="sex" id="male">
     <label for="male">
-        男
+        <input type="radio" name="sex" id="male">
+        <span>
+        </span>
+        male
     </label>
     <!-- 1.使用label的for属性将文字与input radio关联起来 -->
     <!-- 2.设置input的display属性none，去掉默认样式。使用伪元素添加框 -->
