@@ -1,0 +1,112 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>模糊与对比度滤镜</title>
+    <style>
+        .box {
+            position: relative;
+            width: 200px;
+            height: 120px;
+            margin: 20px;
+            border: 1px solid #000;
+        }
+        .box1{
+            filter: contrast(30);  
+        }
+        .box2{
+            filter: contrast(20);  
+        } 
+        .box3{
+            filter: contrast(10);  
+        }
+        .circle {
+            position: absolute;
+            top: 0;
+            bottom: 0;
+            margin: auto;
+            width: 80px;
+            height: 80px;
+            border-radius: 50%;
+        }
+        .circle-one {
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: #00a;
+            filter: blur(8px);
+            animation: toRight 5s linear infinite;
+        }
+        .circle-two {
+            right: 0;
+            background: #00e;
+            filter: blur(8px);
+            animation: toLeft 5s linear infinite;
+        }
+        .circle-three {
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: #00a;
+            filter: blur(16px);
+            animation: toRight 5s linear infinite;
+        }
+        .circle-four {
+            right: 0;
+            background: #00e;
+            filter: blur(24px);
+            animation: toLeft 5s linear infinite;
+        }
+        .circle-five {
+            left: 0;
+            width: 60px;
+            height: 60px;
+            background: #00a;
+            filter: blur(16px);
+            animation: toRight 5s linear infinite;
+        }
+        .circle-six {
+            right: 0;
+            background: #00e;
+            filter: blur(24px);
+            animation: toLeft 5s linear infinite;
+        }
+        @keyframes toRight {
+            0% {
+                left: 0;
+            }
+            100% {
+                left: 60%;
+                transform:translate(-100%);
+            }
+        }
+        @keyframes toLeft {
+            0% {
+                right: 0;
+            }
+            100% {
+                right: 60%;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="box box1">
+        <div class="circle circle-one"></div>
+        <div class="circle circle-two"></div>
+    </div>
+    <div class="box box2">
+        <div class="circle circle-three"></div>
+        <div class="circle circle-four"></div>
+    </div>
+    <div class="box box3">
+        <div class="circle circle-five"></div>
+        <div class="circle circle-six"></div>
+    </div>
+    <div>2个元素从相离的接近相交时的速度越慢，融合的现象越明显</div>
+    <div>2个元素从相交到接近分离时的速度越慢，融合的现象越明显</div>
+     
+</body>
+</html>

@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>纯CSS渐变圆环</title>
+    <link rel="stylesheet" href="./stlye.css">
+</head>
+
+<body>
+    <div class="progress">
+        <div id="percent" class="percent">
+            100%
+        </div>
+        <div class="circle" id="circle">
+        </div>
+        <div class="range">
+            <input id="range" type="range" min="0" max="100" value="100">
+        </div>
+    </div>
+    <div>
+        <p>通过不同半径的同心圆堆叠出同心圆环</p>
+        <p>通过修改伪类选择器input[type="range"]::--webkit-slider-thumb 改变滑动器的样式</p>
+        <p>通过-webkit-appearance属性来重置选择器的默认样式</p>
+       
+        <p>通过 clip-path 属性来剪裁出所需的图形</p>
+        <p>通过 animation-delay 动画延迟时间来控制圆弧的长度</p>
+    </div>
+</body>
+<script>
+function handleRangeChange(){
+    const percent = (range.value - range.min) / ( range.max - range.min);
+    const percentValue = percent * 100 + '%';
+    percentBox.innerHTML = percentValue;
+    if (percent < 1) {
+        circle.style.animationDelay = - percent * 5 + 's';
+    }else {
+        circle.style.animationDelay = 5 + 's';
+    }
+}
+const range = document.getElementById('range');
+const percentBox = document.getElementById('percent');
+const circle = document.getElementById('circle');
+// circle.style.animationDelay = - 0.5 * 5 + 's';
+range.addEventListener('change',handleRangeChange);
+
+</script>
+</html>

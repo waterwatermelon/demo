@@ -1,0 +1,67 @@
+@charset "utf-8";
+html,
+body {
+    width: 100%;
+    height: 100%;
+    display: flex;
+    background-color: #e4e4e4;
+}
+
+.container {
+    position: relative;
+    width: 140px;
+    margin: auto;
+    /* border: 1px solid #eee; */
+    /* 竖直居中 */
+    /* display: flex;
+    justify-items: center; */
+}
+/* main body */
+.battery {
+    /* width: 140px; */
+    height: 200px; 
+    box-sizing: border-box;
+    border-radius: 15px 15px 5px 5px;
+    background-color: #fff;
+    /*与box-shadow属性相似，但不能设置inset。浏览器可以提供硬件加速，提升性能*/
+    filter: drop-shadow(0 1px 3px rgba(0,0,0,0.22));
+    z-index: 1;
+}
+/* anode */
+.battery::before {
+    content: "";
+    position: absolute;
+    width: 26px;
+    height: 10px;
+    top: 0;
+    left: 50%;
+    background-color: rgba(240,240,240,.88);
+    border-radius: 5px 5px 0 0;
+    transform: translate(-50%,-10px);
+}
+.battery::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 90%;
+    background: linear-gradient(to bottom, #7abcff 0%, #00BCD4 44%, #2196F3 100%);
+    border-radius: 0px 0px 5px 5px;
+    box-shadow: 0 14px 28px rgba(33, 150, 243, 0), 0 10px 10px rgba(9, 188, 215, 0.08);
+    animation: charging 7s linear infinite;
+    filter: hue-rotate(90deg);
+    /* z-index: 0; */
+}
+@keyframes charging {
+    95% {
+        top:5%;
+        filter:hue-rotate(0deg);
+        border-radius: 0 0 5px 5px;
+    }
+    100% {
+        top: 0%;
+        border-radius:15px 15px 5px 5px;
+        filter:hue-rotate(0deg);
+    }
+}
